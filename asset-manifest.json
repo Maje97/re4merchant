@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/re4merchant/static/css/main.0c4ef2f7.css",
-    "main.js": "/re4merchant/static/js/main.32043430.js",
+    "main.js": "/re4merchant/static/js/main.e4475c0b.js",
     "static/js/453.ccb56ea5.chunk.js": "/re4merchant/static/js/453.ccb56ea5.chunk.js",
     "static/media/Merchant_Resident_Evil_4_remake.png": "/re4merchant/static/media/Merchant_Resident_Evil_4_remake.9f6a35002de7d8619d62.png",
     "index.html": "/re4merchant/index.html",
     "main.0c4ef2f7.css.map": "/re4merchant/static/css/main.0c4ef2f7.css.map",
-    "main.32043430.js.map": "/re4merchant/static/js/main.32043430.js.map",
+    "main.e4475c0b.js.map": "/re4merchant/static/js/main.e4475c0b.js.map",
     "453.ccb56ea5.chunk.js.map": "/re4merchant/static/js/453.ccb56ea5.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.0c4ef2f7.css",
-    "static/js/main.32043430.js"
+    "static/js/main.e4475c0b.js"
   ]
 }
