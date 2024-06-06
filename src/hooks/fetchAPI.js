@@ -13,9 +13,4 @@ export default function FetchAPI(URL) {
     },[URL]);
 
     return { data };
-
-    /*fetch('https://666014e35425580055b211d0.mockapi.io/api/v1/Products')
-        .then(res => res.json())
-        .then(data => console.log(data))
-        .catch(error => console.log('ERROR')) */
 }
