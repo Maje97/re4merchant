@@ -1,11 +1,8 @@
 import { Link } from "react-router-dom";
+import SaveCart from "../hooks/SaveCart";
 
 export default function ProductCard({ products }) {
     if (!products) return null;
-
-    const check = (a) => {
-        console.log(a);
-    }
 
     return (
        <ul class="size-10/12 flex flex-row flex-wrap">
@@ -16,7 +13,7 @@ export default function ProductCard({ products }) {
                         <p>{product.title}</p>
                         <p>{product.price} Pesetas</p>
                     </Link>
-                    <button onClick={() => check(index)} class="text-xs box-border size-fit p-2 border-solid rounded-3xl border-2 border-stone-500 bg-stone-300">Add to cart</button>
+                    <button onClick={() => SaveCart({ index })} class="text-xs box-border size-fit p-2 border-solid rounded-3xl border-2 border-stone-500 bg-stone-300">Add to cart</button>
                 </li>
             ))}
         </ul> 
