@@ -11,6 +11,8 @@ import About from "./pages/About.jsx";
 import Contact from "./pages/Contact.jsx";
 import Product from "./pages/Product.jsx";
 import Cart from "./pages/Cart.jsx";
+import Checkout from "./pages/Checkout.jsx";
+import Account from "./pages/Account.jsx";
 
 export const ProductArray = createContext();
 
@@ -26,7 +28,9 @@ function App() {
           <Route path="/about" element={<About /> } />
           <Route path="/contact" element={<Contact /> } />
           <Route path="/product/:index" element={<Product />} />
+          <Route path="/account" element={<Account />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/checkout" element={<Checkout />} />
         </Route>
       </Routes>
     </ProductArray.Provider>

@@ -1,5 +1,3 @@
-
-
 export default function SaveCart({ index }) {
     let cartarray = [];
     let localCart = localStorage.getItem('cart');

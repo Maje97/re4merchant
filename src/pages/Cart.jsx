@@ -1,16 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import CartOverview from "../components/CartOverview";
 
 export default function Cart() {
     return (
-        <main class="size-full grid grid-cols-3">
-            <article class="overflow-y-scroll max-h-screen row-start-1 row-span-2 col-span-2 place-self-center">
-                <h1>Cart</h1>
-                <CartOverview />
-            </article>
-            <aside class="bg-gray-400 col-start-3 row-span-3">
-                <h1>Hej</h1>
-            </aside>
+        <main class="size-full flex flex-col items-center justify-around">
+            <h1 class="text-2xl">Cart</h1>
+            <CartOverview />
+            <button><Link to="/checkout">Continue to checkout</Link></button>
         </main>
     );
 }

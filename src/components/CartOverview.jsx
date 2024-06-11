@@ -1,38 +1,65 @@
-import { useContext } from "react";
-import { ProductArray } from "../App.js";
-
+import { useState, useEffect } from "react";
+import CountCart from "../hooks/CountCart.js";
 
 export default function CartOverview() {
-    const products = useContext(ProductArray);
-    const cart = JSON.parse(localStorage.getItem('cart'));
-    const visualcart1 = cart.map(MakeCart);
-    const visualcart2 = visualcart1.filter(FilterNull);
+    const { amount, cart2 } = CountCart();
+    const [amountstate, setAmount] = useState(amount);
+    let sum = 0;
 
-    function MakeCart(product, i) {
-        if(!cart[i]) return product = null;
-        else {
-            return (
-                product = products[i]
-            )
+    function handleClick(index) {
+        const nextAmount = amountstate.map((value, i) => {
+            if(i !== index) {
+                return value;
+            } else {
+                return value +1;
+            }
+        });
+        setAmount(nextAmount);
+    }
+
+    function handleDecrease(index) {
+        const nextAmount = amountstate.map((value, i) => {
+            if(i !== index) {
+                return value;
+            } else {
+                if(value < 1) return 0;
+                else return value -1;
+            }
+        });
+        setAmount(nextAmount);
+    }
+
+    useEffect(() => {
+        localStorage.setItem('amount', JSON.stringify(amountstate));
+    },[amountstate])
+
+    function SumofCart() {
+        for(let i=0; i<amount.length; i++) {
+            sum += amountstate[i] * cart2[i].price;
         }
+        localStorage.setItem('sum', JSON.stringify(sum));
     }
-
-    function FilterNull(product){
-        return product !== null;
-    }
-       
-
-    console.log(visualcart1);
+    SumofCart();
 
     return (
-        <ul class="size-10/12 flex flex-col">
-            {visualcart2.map((product, index) => (
-                <li key={index} class="box-border h-36 w-96 p-4 border-4 flex flex-row justify-between">
-                    <img src={product?.image} alt={product?.title} class="object-contain max-w-28" />
-                    <p>{product?.title}</p>
-                    <p>{product?.price} Pesetas</p>
-                </li>
-            ))}
-        </ul> 
+        <article class="overflow-y-auto max-h-screen">
+            <ul class="size-10/12 flex flex-col">
+                {cart2.map((product, index) => (
+                    <li key={index} class="box-border h-36 w-96 p-4 border-4 flex flex-row justify-between">
+                        <img src={product?.image} alt={product?.title} class="object-contain max-w-28" />
+                        <div class="flex flex-col justify-center">
+                            <p>{product?.title}</p>
+                            <p>{product?.price} Pesetas</p>
+                        </div>
+                        <div class="flex flex-col justify-center">
+                            <button onClick={() => handleClick(index)}>+</button>
+                            <p>{amountstate[index]}</p>
+                            <button onClick={() => handleDecrease(index)}>-</button>
+                        </div>
+                    </li>
+                ))}
+            </ul> 
+            <p>Total cost: {sum}</p>
+        </article>
     )
 }
