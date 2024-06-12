@@ -1,17 +1,20 @@
 import React from "react";
+import OrderhistoryOverview from "../components/OrderhistoryOverview";
 
 export default function Account() {
-    return (
-        <main class="size-full grid grid-cols-3">
-            <section class="row-start-1 row-span-1 col-span-2 place-self-center">
-                <h1>About</h1>
-            </section>
-            <article class="overflow-y-scroll max-h-screen row-start-2 row-span-2 col-span-2 place-self-center">
-                <h1>Hej</h1>
-            </article>
-            <aside class="bg-gray-400 col-start-3 row-span-3">
-                <h1>Hej</h1>
-            </aside>
-        </main>
-    );
+    if(!localStorage.getItem('orders')) {
+        return (
+            <main class="flex flex-col md:flex-row items-center">
+                <h1 class="text-2xl">Order history</h1>
+                <p>No order history</p>
+            </main>
+        );
+    } else {
+        return (
+            <main class="flex flex-col md:flex-row items-center justify-around">
+                <h1>Account</h1>
+                <OrderhistoryOverview />
+            </main>
+        );
+    }  
 }

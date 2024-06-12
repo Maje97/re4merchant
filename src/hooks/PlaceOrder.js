@@ -8,26 +8,28 @@ export default function PlaceOrder() {
 
     const date = new Date();
     const a = date.getFullYear();
-    const b = date.getMonth();
+    const b = date.getMonth() +1;
     const c = date.getDate();
     const orderdate = [a, b, c];
+    let orderobj = [{
+        date: orderdate,
+        cart: cart,
+        amount: amount,
+        sum: sum
+    }]
 
     if(PersonalInfo && cart && amount && sum) {
-        orderdate.push(cart);
-        orderdate.push(amount);
-        orderdate.push(sum);
+        if(!orders){
+            localStorage.clear();
+            localStorage.setItem('orders', JSON.stringify(orderobj));
+            return alert("Your first order has been placed!")
+        } else {
+            orders.push(orderobj);
+            localStorage.clear();
+            localStorage.setItem('orders', JSON.stringify(orders));
+            return alert("Your order has been placed!")
+        }
     } else {
-        return alert("Something is missing!");
-    }
-
-    if(!orders){
-        localStorage.clear();
-        localStorage.setItem('orders', JSON.stringify(orderdate));
-        return alert("Your first order has been placed!")
-    } else {
-        localStorage.clear();
-        orders.push(orderdate);
-        localStorage.setItem('orders', JSON.stringify(orders));
-        return alert("Your order has been placed!")
+        return alert("Adress required before placing order!");
     }
 }
