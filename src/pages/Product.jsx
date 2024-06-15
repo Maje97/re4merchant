@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { ProductArray } from "../App.js";
-import SaveCart from "../hooks/SaveCart";
 
 export default function Product() {
     const { index } = useParams();
@@ -13,7 +12,7 @@ export default function Product() {
                 <h1 class="self-center p-8 text-4xl font-bold underline">{products[index].title}</h1>
                 <img src={products[index].image} alt={products[index].title} class="self-center max-w-3xl hover:scale-[2.0]" />
                 <p class="self-center box-content max-w-96 p-4">{products[index].description}</p>
-                <button onClick={() => SaveCart({ index })} class="self-center text-s box-border size-fit p-2 border-solid rounded-3xl border-2 border-stone-500 bg-stone-300 hover:animate-bounce">Add to cart</button>
+                <button class="self-center text-s box-border size-fit p-2 border-solid rounded-3xl border-2 border-stone-500 bg-stone-300 hover:animate-bounce">Add to cart</button>
             </article>
             <aside class="bg-gray-400 col-start-1 row-span-3">
                 <h1>Hej</h1>

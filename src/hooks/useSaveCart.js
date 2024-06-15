@@ -1,4 +1,4 @@
-export default function SaveCart({ index }) {
+export default function useSaveCart({ index }) {
     let cartarray = [];
     let localCart = localStorage.getItem('cart');
 

@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
-import CountCart from "../hooks/CountCart.js";
+import useCountCart from "../hooks/useCountCart.js";
 
 export default function CartOverview() {
-    const { amount, cart2 } = CountCart();
+    const { amount, cart2 } = useCountCart();
     const [amountstate, setAmount] = useState(amount);
     let sum = 0;
 

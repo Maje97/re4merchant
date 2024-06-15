@@ -8,7 +8,8 @@ function MainHeader(){
                 <img class="object-none object-top h-36 w-52" src={logo} alt="Logo"/>
             </div>
             <div class="pt-4 pl-4">
-                <h1 class="text-xl">The Merchant</h1>
+                <h1 class="text-2xl">The Merchant</h1>
+                <h2 class="text-xl">Resident Evil 4 Remake</h2>
                 <p>"Got a selection of good things on sale, stranger!"</p>
             </div>
         </header>

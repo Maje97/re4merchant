@@ -1,5 +1,5 @@
 
-export default function PlaceOrder() {
+export default function usePlaceOrder() {
     const PersonalInfo = JSON.parse(localStorage.getItem('userinfo'));
     const cart = JSON.parse(localStorage.getItem('cartitems'));
     const amount = JSON.parse(localStorage.getItem('amount'));
@@ -22,7 +22,7 @@ export default function PlaceOrder() {
         if(!orders){
             localStorage.clear();
             localStorage.setItem('orders', JSON.stringify(orderobj));
-            return alert("Your first order has been placed!")
+            return [alert("Your first order has been placed!")];
         } else {
             orders.push(orderobj);
             localStorage.clear();

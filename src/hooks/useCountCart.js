@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { ProductArray } from "../App.js";
 
-export default function CountCart() {
+export default function useCountCart() {
     const products = useContext(ProductArray);
     const cart = JSON.parse(localStorage.getItem('cart'));
     let amount = JSON.parse(localStorage.getItem('amount'));
