@@ -1,13 +1,11 @@
-import { useState, useEffect } from "react";
 import useCountCart from "../hooks/useCountCart.js";
 
 export default function CartOverview() {
-    const { amount, cart2 } = useCountCart();
-    const [amountstate, setAmount] = useState(amount);
+    const { amount, setAmount, cart } = useCountCart();
     let sum = 0;
 
     function handleClick(index) {
-        const nextAmount = amountstate.map((value, i) => {
+        const nextAmount = amount.map((value, i) => {
             if(i !== index) {
                 return value;
             } else {
@@ -15,10 +13,11 @@ export default function CartOverview() {
             }
         });
         setAmount(nextAmount);
+        localStorage.setItem('amount', JSON.stringify(nextAmount));
     }
 
     function handleDecrease(index) {
-        const nextAmount = amountstate.map((value, i) => {
+        const nextAmount = amount.map((value, i) => {
             if(i !== index) {
                 return value;
             } else {
@@ -27,24 +26,21 @@ export default function CartOverview() {
             }
         });
         setAmount(nextAmount);
+        localStorage.setItem('amount', JSON.stringify(nextAmount));
     }
-
-    useEffect(() => {
-        localStorage.setItem('amount', JSON.stringify(amountstate));
-    },[amountstate])
 
     function SumofCart() {
         for(let i=0; i<amount.length; i++) {
-            sum += amountstate[i] * cart2[i].price;
+            sum += amount[i] * cart[i].price;
         }
         localStorage.setItem('sum', JSON.stringify(sum));
     }
     SumofCart();
 
     return (
-        <article class="overflow-y-auto max-h-screen">
-            <ul class="size-10/12 flex flex-col">
-                {cart2.map((product, index) => (
+        <article class="max-h-[80%]">
+            <ul class="max-h-[90%] w-full overflow-y-auto size-10/12 flex flex-col">
+                {cart.map((product, index) => (
                     <li key={index} class="box-border h-36 w-96 p-4 border-4 flex flex-row justify-between">
                         <img src={product?.image} alt={product?.title} class="object-contain max-w-28" />
                         <div class="flex flex-col justify-center">
@@ -53,7 +49,7 @@ export default function CartOverview() {
                         </div>
                         <div class="flex flex-col justify-center">
                             <button onClick={() => handleClick(index)}>+</button>
-                            <p>{amountstate[index]}</p>
+                            <p>{amount[index]}</p>
                             <button onClick={() => handleDecrease(index)}>-</button>
                         </div>
                     </li>

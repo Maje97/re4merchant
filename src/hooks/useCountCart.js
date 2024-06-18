@@ -1,44 +1,40 @@
-import { useContext } from "react";
-import { ProductArray } from "../App.js";
+import { useContext, useEffect, useState } from "react";
+import { ProductArray, CartUpdater } from "../App.js";
 
 export default function useCountCart() {
     const products = useContext(ProductArray);
-    const cart = JSON.parse(localStorage.getItem('cart'));
-    let amount = JSON.parse(localStorage.getItem('amount'));
-    const cart1 = cart.map(MakeCart);
-    let cart2 = JSON.parse(localStorage.getItem('cartitems'));
+    const { cartAmount } = useContext(CartUpdater);
+    const [amount, setAmount] = useState([]);
+    const [cart, setCart] = useState([]);
 
-    if(!cart) {
-        return null;
-    }
+    useEffect(() => {
+        const cart1 = cartAmount.map((product, i) => {
+            if(cartAmount[i] === 0) return product = null;
+            else {
+                return (
+                    product = products[i]
+                )
+            }
+        });
+        
+        const newcart = cart1.filter(
+            (value) => { return value !== null; }
+        );
+        setCart(newcart);
+        localStorage.setItem('cartitems', JSON.stringify(newcart));
+    },[cartAmount, cart, products])
 
-    if(!amount) {
-        let newamount = cart.filter(FilterNull);
+    useEffect(() => {
+        const newamount = cartAmount.filter(
+            (value) => { return value !== 0; }
+        );
+        setAmount(newamount);
         localStorage.setItem('amount', JSON.stringify(newamount));
-        amount = JSON.parse(localStorage.getItem('amount'));
-    }
+    },[cartAmount])
 
-    if(!cart2) {
-        let newcart2 = cart1.filter(FilterNull);
-        localStorage.setItem('cartitems', JSON.stringify(newcart2));
-        cart2 = JSON.parse(localStorage.getItem('cartitems'));
-    }
-
-    function MakeCart(product, i) {
-        if(!cart[i]) return product = null;
-        else {
-            return (
-                product = products[i]
-            )
-        }
-    }
-
-    function FilterNull(value){
-        return value !== null;
-    }
-
+    console.log(cartAmount);
     console.log(amount);
-    console.log(cart2);
+    console.log(cart);
 
-    return { amount, cart2 };
+    return { amount, setAmount, cart };
 }

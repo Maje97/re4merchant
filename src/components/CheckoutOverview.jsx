@@ -5,9 +5,9 @@ export default function CheckoutOverview() {
     const sum = JSON.parse(localStorage.getItem('sum'));
 
     return (
-        <article class="overflow-y-auto max-h-screen">
+        <article class="max-h-screen">
             <h1>Order summary</h1>
-            <ul class="size-10/12 flex flex-col">
+            <ul class="overflow-y-auto h-[60%] md:h-96 flex flex-col">
                 {cart.map((product, index) => (
                     <li key={index} class="box-border h-36 w-96 p-4 border-4 flex flex-row justify-between">
                         <img src={product?.image} alt={product?.title} class="object-contain max-w-28" />
@@ -19,7 +19,7 @@ export default function CheckoutOverview() {
                     </li>
                 ))}
             </ul> 
-            <p>Total cost: {sum}</p>
+            <p>Total cost: {sum} Pesetas</p>
         </article>
     )
 }

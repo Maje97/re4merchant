@@ -3,15 +3,22 @@ import { useContext } from "react";
 import { CartUpdater } from "../App.js"
 
 export default function ProductCard({ products }) {
-    const { cart, dispatch } = useContext(CartUpdater);
+    const {cartAmount, setCartAmount} = useContext(CartUpdater);
 
-    const HandleAdd = (product) => {
-        dispatch({ type: "ADD_ITEM", payload: product });
+    const AddtoCart = ({ index }) => {
+            const NewCartAmount = cartAmount.map((value, i) => {
+                if(i === index) {
+                    return value+1
+                } else {
+                    return value
+                }
+            });
+            setCartAmount(NewCartAmount);
+            console.log(cartAmount);
     }
 
     if (!products) return null;
     else {
-        console.log(cart);
         return (
         <ul class="size-10/12 flex flex-row flex-wrap">
                 {products.map((product, index) => (
@@ -21,7 +28,7 @@ export default function ProductCard({ products }) {
                             <p>{product.title}</p>
                             <p>{product.price} Pesetas</p>
                         </Link>
-                        <button onClick={() => HandleAdd(product)} class="text-xs box-border size-fit p-2 border-solid rounded-3xl border-2 border-stone-500 bg-stone-300">Add to cart</button>
+                        <button onClick={() => AddtoCart({index})} class="text-xs box-border size-fit p-2 border-solid rounded-3xl border-2 border-stone-500 bg-stone-300">Add to cart</button>
                     </li>
                 ))}
             </ul> 

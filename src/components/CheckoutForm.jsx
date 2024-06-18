@@ -17,7 +17,7 @@ export default function CheckoutForm() {
     }
 
     return (
-        <form onSubmit={handleSubmit} class="flex flex-col border-4 p-4">
+        <form onSubmit={handleSubmit} class="flex flex-col border-4 p-4 max-h-96">
             <input value={inputs.name || ""} onChange={handleChange} name="name" type="text" placeholder="Name" class="p-2" />
             <input value={inputs.email || ""} onChange={handleChange} name="email" type="email" placeholder="Email" class="p-2" />
             <input value={inputs.adress || ""} onChange={handleChange} name="adress" type="text" placeholder="Adress" class="p-2" />
