@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/re4merchant/static/css/main.cf78584e.css",
-    "main.js": "/re4merchant/static/js/main.9e4299f5.js",
+    "main.css": "/re4merchant/static/css/main.1e4ae029.css",
+    "main.js": "/re4merchant/static/js/main.631d5595.js",
     "static/js/453.ccb56ea5.chunk.js": "/re4merchant/static/js/453.ccb56ea5.chunk.js",
     "static/media/game.capcom.manual.re4.jpg": "/re4merchant/static/media/game.capcom.manual.re4.72ebafadcbc2e2474741.jpg",
     "static/media/Merchant_Resident_Evil_4_remake.png": "/re4merchant/static/media/Merchant_Resident_Evil_4_remake.9f6a35002de7d8619d62.png",
     "index.html": "/re4merchant/index.html",
-    "main.cf78584e.css.map": "/re4merchant/static/css/main.cf78584e.css.map",
-    "main.9e4299f5.js.map": "/re4merchant/static/js/main.9e4299f5.js.map",
+    "main.1e4ae029.css.map": "/re4merchant/static/css/main.1e4ae029.css.map",
+    "main.631d5595.js.map": "/re4merchant/static/js/main.631d5595.js.map",
     "453.ccb56ea5.chunk.js.map": "/re4merchant/static/js/453.ccb56ea5.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cf78584e.css",
-    "static/js/main.9e4299f5.js"
+    "static/css/main.1e4ae029.css",
+    "static/js/main.631d5595.js"
   ]
 }
