@@ -28,7 +28,7 @@ export default function ProductCard({ products }) {
                             <p>{product.title}</p>
                             <p>{product.price} Pesetas</p>
                         </Link>
-                        <button onClick={() => AddtoCart({index})} class="text-xs box-border size-fit p-2 border-solid rounded-3xl border-2 border-stone-500 bg-stone-300">Add to cart</button>
+                        <button onClick={() => AddtoCart({index})} class="text-xs box-border size-fit p-2 border-solid rounded-3xl border-2 border-stone-500 bg-stone-300 active:bg-stone-500">Add to cart</button>
                     </li>
                 ))}
             </ul> 
