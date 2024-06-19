@@ -1,3 +1,11 @@
+# Instructions
+
+Type **git clone https://github.com/Maje97/re4merchant.git** in your command prompter to download the repository.
+
+If you want to view the website visit [maje97.github.io/re4merchant](https://maje97.github.io/re4merchant/).
+
+---
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
