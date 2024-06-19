@@ -1,9 +1,9 @@
-const cart = JSON.parse(localStorage.getItem('cartitems'));
-const amount = JSON.parse(localStorage.getItem('amount'));
-const sum = JSON.parse(localStorage.getItem('sum'));
-const userinfo = JSON.parse(localStorage.getItem('userinfo'));
-
 export default function OrderConfirmation() {
+    const cart = JSON.parse(localStorage.getItem('cartitems'));
+    const amount = JSON.parse(localStorage.getItem('amount'));
+    const sum = JSON.parse(localStorage.getItem('sum'));
+    const userinfo = JSON.parse(localStorage.getItem('userinfo'));
+
     return (
         <main class="size-full flex flex-col items-center justify-around">
             <h1 class="text-2xl">Thank you for ordering!</h1>
@@ -21,11 +21,11 @@ export default function OrderConfirmation() {
             </div>
             <p>Total cost: {sum} Pesetas</p>
             <div class="flex flex-col items-center">
-                    <p>{userinfo?.name}</p>
-                    <p>{userinfo?.email}</p>
-                    <p>{userinfo?.adress}</p>
-                    <p>{userinfo?.postalcode}</p>
-                    <p>{userinfo?.city}</p>
+                    <p>{userinfo.name}</p>
+                    <p>{userinfo.email}</p>
+                    <p>{userinfo.adress}</p>
+                    <p>{userinfo.postalcode}</p>
+                    <p>{userinfo.city}</p>
             </div>
         </main>
     );
