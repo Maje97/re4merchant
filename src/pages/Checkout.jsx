@@ -11,7 +11,7 @@ export default function Checkout() {
                 <CheckoutOverview />
                 <CheckoutForm />
             </div>
-            <button class="self-center text-s box-border size-fit p-2 border-solid rounded-3xl border-2 border-stone-500 bg-stone-300 hover:animate-bounce"><Link to="/orderconfirmation">Place order</Link></button>
+            <button class="self-center text-s box-border size-fit p-2 border-solid rounded-3xl border-2 border-stone-500 bg-stone-300 active:bg-stone-500 hover:animate-bounce"><Link to="/orderconfirmation">Place order</Link></button>
         </main>
     );
 }

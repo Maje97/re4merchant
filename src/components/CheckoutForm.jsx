@@ -23,7 +23,7 @@ export default function CheckoutForm() {
             <input value={inputs.adress || ""} onChange={handleChange} name="adress" type="text" placeholder="Adress" class="p-2" />
             <input value={inputs.postalcode || ""} onChange={handleChange} name="postalcode" type="text" placeholder="Postalcode" class="p-2" />
             <input value={inputs.city || ""} onChange={handleChange} name="city" type="text" placeholder="City" class="p-2" />
-            <button type="submit" class="p-2">Save adress</button>
+            <button type="submit" class="self-center text-s box-border size-fit p-2 border-solid rounded-3xl border-2 border-stone-500 bg-stone-300 active:bg-stone-500">Save adress</button>
         </form>
     )
 }
