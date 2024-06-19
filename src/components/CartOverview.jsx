@@ -1,6 +1,9 @@
 import useCountCart from "../hooks/useCountCart.js";
+import { CartUpdater } from "../App.js";
+import { useContext } from "react";
 
 export default function CartOverview() {
+    const {cartAmount, setCartAmount} = useContext(CartUpdater);
     const { amount, setAmount, cart } = useCountCart();
     let sum = 0;
 
@@ -21,8 +24,18 @@ export default function CartOverview() {
             if(i !== index) {
                 return value;
             } else {
-                if(value < 1) return 0;
-                else return value -1;
+                if(value === 1) {
+                    let removedindex = cart[index].id-1;
+                    let newCartAmount = cartAmount.map((value, i) => {
+                        if(i === removedindex) {
+                            return value=0;
+                        } else {
+                            return value;
+                        }
+                    }); 
+                    setCartAmount(newCartAmount);
+                    return 0;
+                } else return value -1;
             }
         });
         setAmount(nextAmount);

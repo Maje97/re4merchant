@@ -1,7 +1,7 @@
 const cart = JSON.parse(localStorage.getItem('cartitems'));
 const amount = JSON.parse(localStorage.getItem('amount'));
 const sum = JSON.parse(localStorage.getItem('sum'));
-const userinfo = JSON.parse(localStorage.getItem('userinfo'))
+const userinfo = JSON.parse(localStorage.getItem('userinfo'));
 
 export default function OrderConfirmation() {
     return (
